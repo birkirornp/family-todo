@@ -8,6 +8,19 @@ const firebaseConfig = {
     messagingSenderId: "780204411967",
     appId: "1:780204411967:web:9c639f071fa67d610d3c8a"
   };
+
+  // Test Firebase connection
+const testConnection = async () => {
+  try {
+    const testRef = db.ref('test');
+    await testRef.set({ status: 'connected' });
+    console.log('Firebase connection successful.');
+  } catch (error) {
+    console.error('Firebase connection failed:', error);
+  }
+};
+testConnection();
+
   
   // Connect to Firebase
   const app = firebase.initializeApp(firebaseConfig);
